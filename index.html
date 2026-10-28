@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#4f46e5" />
+    <meta name="theme-color" content="#08131b" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Daily Word Ladder" />
+    <meta name="description" content="Daily Word Ladder wedding-themed game." />
     <title>Daily Word Ladder</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
@@ -14,59 +15,37 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="app">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Daily challenge</p>
-          <h1>Word Ladder</h1>
+    <div class="app-shell">
+      <header class="top-header">
+        <h1>Daily Word Ladder</h1>
+        <div class="date-box" aria-label="Date badge">
+          <span class="date-no">NO. 300</span>
+          <span class="date-day">OCT 27</span>
         </div>
-        <div class="date-pill" id="dateLabel"></div>
       </header>
 
-      <section class="panel challenge-panel">
-        <div class="word-row">
-          <div class="word-box start">
-            <span class="label">Start</span>
-            <strong id="startWord">COLD</strong>
-          </div>
-          <div class="arrow">→</div>
-          <div class="word-box goal">
-            <span class="label">Goal</span>
-            <strong id="goalWord">WARM</strong>
-          </div>
-        </div>
-
-        <p class="instructions">
-          Change one letter at a time to transform the start word into the goal word.
-          Every intermediate word must be valid.
-        </p>
-
-        <div class="progress">
-          <span class="label">Your ladder</span>
-          <div id="currentPath" class="current-path">
-            <span class="placeholder">Start by adding a word.</span>
-          </div>
-        </div>
-
-        <form id="guessForm" class="controls">
-          <label class="sr-only" for="guessInput">Type a new word</label>
-          <input id="guessInput" type="text" maxlength="5" autocomplete="off" placeholder="Type a word" />
-          <button type="submit">Add word</button>
-        </form>
-
-        <div class="actions">
-          <button id="resetButton" class="secondary" type="button">Reset</button>
-          <button id="solutionButton" type="button">Show solution</button>
-        </div>
-
-        <p id="status" class="status" aria-live="polite"></p>
+      <section class="panel howto-panel" aria-label="How to play section">
+        <h2>How to play</h2>
+        <button class="plus-button" type="button" aria-label="Show instructions">+</button>
       </section>
 
-      <section class="panel word-bank-panel">
-        <h2>Word bank</h2>
-        <div id="wordBank" class="word-bank"></div>
+      <section class="panel ladder-panel" aria-label="Game board">
+        <div class="ladder-topbar">
+          <p>Climb from <span class="word-inline start-word">HATE</span> to <span class="word-inline goal-word">LOVE</span></p>
+          <span class="steps">2 steps</span>
+        </div>
+
+        <div id="ladderBoard" class="ladder-board" aria-live="polite"></div>
+
+        <div class="action-row" aria-label="Game actions">
+          <button type="button" class="ghost-btn">Undo</button>
+          <button type="button" class="ghost-btn">Hint</button>
+          <button type="button" class="ghost-btn">Practice ladder</button>
+        </div>
+
+        <div id="keyboard" class="keyboard" aria-label="On screen keyboard"></div>
       </section>
-    </main>
+    </div>
 
     <script src="app.js"></script>
   </body>
