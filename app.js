@@ -78,7 +78,7 @@ const validWords = new Set(
     "HOLD",
     "WOLD",
     "WORLD",
-    "WORL", 
+    "WORL",
   ].filter(Boolean)
 );
 
@@ -221,6 +221,14 @@ function initializeGame() {
   setStatus("The challenge is ready. Build your ladder step by step.", "warning");
 }
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+      console.warn("Service worker registration failed:", error);
+    });
+  });
+}
+
 guessForm.addEventListener("submit", (event) => {
   event.preventDefault();
   addWordToPath(guessInput.value);
@@ -238,4 +246,3 @@ solutionButton.addEventListener("click", () => {
 });
 
 initializeGame();
-

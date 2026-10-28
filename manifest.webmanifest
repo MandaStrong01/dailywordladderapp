@@ -1,0 +1,18 @@
+{
+  "name": "Daily Word Ladder",
+  "short_name": "Word Ladder",
+  "description": "A daily Word Ladder game challenge.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7ff",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
