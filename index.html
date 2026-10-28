@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Word Ladder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Daily challenge</p>
+          <h1>Word Ladder</h1>
+        </div>
+        <div class="date-pill" id="dateLabel"></div>
+      </header>
+
+      <section class="panel challenge-panel">
+        <div class="word-row">
+          <div class="word-box start">
+            <span class="label">Start</span>
+            <strong id="startWord">COLD</strong>
+          </div>
+          <div class="arrow">→</div>
+          <div class="word-box goal">
+            <span class="label">Goal</span>
+            <strong id="goalWord">WARM</strong>
+          </div>
+        </div>
+
+        <p class="instructions">
+          Change one letter at a time to transform the start word into the goal word.
+          Every intermediate word must be valid.
+        </p>
+
+        <div class="progress">
+          <span class="label">Your ladder</span>
+          <div id="currentPath" class="current-path">
+            <span class="placeholder">Start by adding a word.</span>
+          </div>
+        </div>
+
+        <form id="guessForm" class="controls">
+          <label class="sr-only" for="guessInput">Type a new word</label>
+          <input id="guessInput" type="text" maxlength="5" autocomplete="off" placeholder="Type a word" />
+          <button type="submit">Add word</button>
+        </form>
+
+        <div class="actions">
+          <button id="resetButton" class="secondary" type="button">Reset</button>
+          <button id="solutionButton" type="button">Show solution</button>
+        </div>
+
+        <p id="status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel word-bank-panel">
+        <h2>Word bank</h2>
+        <div id="wordBank" class="word-bank"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
